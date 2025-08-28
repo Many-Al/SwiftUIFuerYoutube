@@ -60,6 +60,13 @@ struct SwiftUICircle: View {
             .fill(Color.green)
             .frame(width: 100, height: 100)
             .scaleEffect(scale)
+ //SwiftUI يجعل إضافة الرسوم المتحركة للدائرة سهلة باستخدام .animation().
+           
+//شرح:
+ 
+ .scaleEffect(scale): يغير حجم الدائرة بناءً على قيمة scale.
+ .animation(.easeInOut(duration: 1.0), value: scale): يضيف حركة سلسة عند تغيير الحجم.
+
             .animation(.easeInOut(duration: 1.0), value: scale)
             .onTapGesture {
                 scale = scale == 1.0 ? 1.5 : 1.0
@@ -73,7 +80,12 @@ struct SwiftUICircle: View {
         VStack(spacing: 20) {
             Text("دائرة مخصصة")
                 .font(.title)
-            
+ 
+ 
+            //.overlay: يضيف نصًا أو صورة فوق الدائرة.
+ Button: يستخدم الدائرة كخلفية للزر.
+ 
+ 
             Circle()
                 .fill(LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .top, endPoint: .bottom))
                 .frame(width: 150, height: 150)
