@@ -118,10 +118,53 @@ struct SwiftUICircle: View {
     }
 }
 */
+/*
+استخدام Circle كقناع (Mask)
+يمكن استخدام Circle كقناع لاقتصاص العناصر الأخرى مثل الصور.
 
+struct SwiftUICircle: View {
+    var body: some View {
+        Image(systemName: "star.fill")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .clipShape(Circle()) // اقتصاص الصورة على شكل دائرة
+    }
+}
+*/
+//تمرين عملي
 
-//استخدام Circle كقناع (Mask)
-يمكن استخدام Circle كقناع لاقتصاص العناصر الأخرى مثل الصور.//
+struct SwiftUICircle: View {
+    @State private var isTapped = false
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Circle()
+                .fill(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                .frame(width: 150, height: 150)
+                .overlay(
+                    Text("مرحبًا")
+                        .foregroundColor(.white)
+                        .font(.title)
+                )
+                .shadow(radius: 10)
+            
+            Button(action: {
+                isTapped.toggle()
+            }) {
+                Circle()
+                    .fill(isTapped ? Color.red : Color.green)
+                    .frame(width: 100, height: 100)
+                    .scaleEffect(isTapped ? 1.2 : 1.0)
+                    .animation(.easeInOut(duration: 0.5), value: isTapped)
+                    .overlay(
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.white)
+                    )
+            }
+        }
+    }
+}
+
 
 
 #Preview {
