@@ -1,3 +1,4 @@
+
 //
 //  SwiftUIEllipse.swift
 //  SwiftUIFuerYoutube
@@ -42,5 +43,6 @@ struct SwiftUIEllipse: View {
 #Preview {
     SwiftUIEllipse()
 }
+
 
 
