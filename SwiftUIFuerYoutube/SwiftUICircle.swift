@@ -138,6 +138,7 @@ struct SwiftUICircle: View {
 
     var body: some View {
         VStack(spacing: 20) {
+            
             Circle()
                 .fill(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
                 .frame(width: 150, height: 150)
