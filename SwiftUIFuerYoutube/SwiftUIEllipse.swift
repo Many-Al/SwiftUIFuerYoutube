@@ -13,6 +13,7 @@ struct SwiftUIEllipse: View {
             Text("شكل إهليلجي مخصص")
                 .font(.title)
             
+            
             Ellipse()
                 .fill(LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .top, endPoint: .bottom))
                 .frame(width: 200, height: 100)

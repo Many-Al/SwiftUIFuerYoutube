@@ -88,6 +88,7 @@ struct SwiftUIText: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
+                    
                     Button(action: {
                         message = "مرحبًا، عالم SwiftUI!"
                     }) {
