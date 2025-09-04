@@ -5,44 +5,54 @@
 //
 //  Created by Mahmoud Alame on 29.08.25.
 //
+/*import SwiftUI
 
 import SwiftUI
 
 struct SwiftUIEllipse: View {
     var body: some View {
-        VStack(spacing: 20) {
-            Text("شكل إهليلجي مخصص")
-                .font(.title)
+        Ellipse()
+           // .fill(Color.blue)
+        //تدرج لوني
+            .fill(LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom))
+        //استخدم .stroke() لإضافة حدود للشكل
+            .stroke(Color.black, lineWidth: 4)
+        //استخدم .scaleEffect() لتكبير أو تصغير الشكل نسبيًا
+           .scaleEffect(1.2)
+        //استخدم .shadow() لإضافة ظل.
+           .shadow(radius: 10)
+        //استخدم .rotationEffect() لتدوير الشكل
+           .rotationEffect(.degrees(45))
+        //استخدم .padding() لإضافة مسافات حول الشكل
+           .padding(20)
+        
+            .frame(width: 200, height: 100)
             
-            
-            Ellipse()
-                .fill(LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .top, endPoint: .bottom))
-                .frame(width: 200, height: 100)
-                .shadow(radius: 10)
-                .overlay(
-                    Text("مرحبًا")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                )
-            
-            Button(action: {
-                print("تم النقر!")
-            }) {
-                Ellipse()
-                    .fill(Color.blue)
-                    .frame(width: 120, height: 60)
-                    .overlay(
-                        Image(systemName: "play.fill")
-                            .foregroundColor(.white)
-                    )
-            }
-        }
     }
 }
+
+  */
+import SwiftUI
+
+struct SwiftUIEllipse: View {
+    @State private var isTapped = false
+
+    var body: some View {
+        Ellipse()
+            .fill(isTapped ? Color.red : Color.blue)
+            .frame(width: 200, height: 100)
+            .onTapGesture {
+                isTapped.toggle()
+            }
+ 
+    }
+}
+
+
 
 #Preview {
     SwiftUIEllipse()
 }
 
 
-
+//خلينا اليوم نبدأ بال

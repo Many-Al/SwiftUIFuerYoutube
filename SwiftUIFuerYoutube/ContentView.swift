@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isTapped: Bool = false // تعريف متغير الحالة
+    @State private var isToggled: Bool = false // متغير حالة لـ Toggle
 
     var body: some View {
         VStack {
-            Text(isTapped ? "تم النقر!" : "انقر هنا") // تغيير النص بناءً على حالة isTapped
-                .padding()
-                .onTapGesture {
-                    isTapped.toggle() // تغيير حالة isTapped عند النقر
-                }
+            // مفتاح Toggle
+            Toggle("تغيير لون الخلفية", isOn: $isToggled)
+                .padding() // إضافة Padding حول Toggle
+            
+            // مستطيل بلون خلفية ديناميكي
+            Rectangle()
+                .fill(isToggled ? Color.green : Color.red) // تغيير اللون بناءً على الحالة
+                .frame(height: 200) // تحديد ارتفاع المستطيل
+                .cornerRadius(10) // تدوير الزوايا
+                .padding() // إضافة Padding حول المستطيل
         }
+        .padding() // إضافة Padding حول VStack بأكمله
     }
 }
+
+
+
 
 
 #Preview {
