@@ -59,7 +59,9 @@ print("The total amount after tax is \(totalAmount) euros.")
 
 /*100%−19%=81%
 11×0,81=8,91
- */
+ 
+
+
 let originalBetrag: Double = 1.99
 let prozentsatz: Double = 20.0
 
@@ -74,6 +76,4 @@ print("Abzugsprozentsatz: \(prozentsatz)%")
 print("Abzugsbetrag (19%): \(abzug) €")
 print("Verbleibender Betrag: \(verbleibend) €")
 
-
-
-
+ */
