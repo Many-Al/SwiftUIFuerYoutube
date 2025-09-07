@@ -72,14 +72,59 @@ struct SwiftUIButton: View {
             .foregroundStyle(.green)
             .disabled(true)
             
+         
+            Button {
+                            // Aktion, die beim Drücken des Buttons ausgeführt wird
+                            print("Button gedrückt!") // Beispiel-Aktion
+                        } label: {
+                            VStack {
+                                Text("Text Button") // Text für den Button
+                                    .font(.largeTitle) // Schriftgröße
+                                    .bold() // Fetter Stil
+                            }
+                            .padding() // Polsterung um den Text
+                            .background(Color.blue) // Hintergrundfarbe des Buttons
+                            .foregroundColor(.white) // Textfarbe
+                            .cornerRadius(10) // Abgerundete Ecken
+                        }
+                    }
+                    .padding() // Polsterung für die VStack
+        
+        Button {
+                        // Aktion, die beim Drücken des Buttons ausgeführt wird
+                        print("Button gedrückt!") // Beispiel-Aktion
+        } label: {
             
-            
-            
-            
+            Image(systemName: "square.and.arrow.up")
             
         }
-    }
-}
+        .buttonStyle(.bordered)
+        
+        Button {
+                        // Aktion, die beim Drücken des Buttons ausgeführt wird
+                        print("Button gedrückt!") // Beispiel-Aktion
+        } label: {
+            
+           Circle()
+                .fill(Color.blue)
+                .frame(width: 100, height: 100)
+                .shadow(radius: 10)
+                .overlay(
+                    Image(systemName: "heart.fill")
+                        .font(.title)
+                        .foregroundStyle(.white)
+                )
+            
+        }
+        
+        
+        
+        
+        
+        
+                }
+            }
+            
 
 
 struct CustamButtonStyle: ButtonStyle {
