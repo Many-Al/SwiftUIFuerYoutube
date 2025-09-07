@@ -53,12 +53,29 @@ struct SwiftUIButton: View {
             .buttonStyle(.plain)
             .tint(.red)
             
-            Button("plain title", action: {
+            Button("CustamButtonStyle title", action: {
                 print("buttoon pressed")
             })
             .font(.system(size: 50, weight: .bold))
             .bold()
             .buttonStyle(CustamButtonStyle())
+            
+            
+            Button("borderedProminent title", action: {
+                print("buttoon pressed")
+            })
+            .font(.title)
+            .controlSize(.extraLarge)
+            .buttonBorderShape(.capsule)
+            .buttonStyle(.borderedProminent)
+            .tint(.gray)
+            .foregroundStyle(.green)
+            .disabled(true)
+            
+            
+            
+            
+            
             
         }
     }
@@ -70,9 +87,10 @@ struct CustamButtonStyle: ButtonStyle {
         configuration.label
             .font(.title)
             .bold()
+            .padding()
             .background(
                 RoundedRectangle(cornerRadius: 25)
-                    .fill(.red))
+                    .fill(.green))
     }
     
 }
