@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwiftUIState: View {
-    private var counter = 0
+    @State private var counter = 0
 
 
 
@@ -27,6 +27,8 @@ struct SwiftUIState: View {
             HStack(spacing : 40){
                 Button("-"){
                     //decrement
+                    //counter = counter - 1
+                    counter -= 1
                 }
                 .controlSize(.large)
                 .buttonStyle(.bordered)
