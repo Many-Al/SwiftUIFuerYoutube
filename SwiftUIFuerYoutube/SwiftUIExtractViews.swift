@@ -16,10 +16,7 @@ struct SwiftUIExtractViews: View {
                 .ignoresSafeArea()
             VStack{
                 // counter title
-                Text("Counter")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .bold()
+                TitelView(title: "Counter")
                 
                 
                 // counter text
@@ -71,4 +68,14 @@ struct SwiftUIExtractViews: View {
 
 #Preview {
     SwiftUIExtractViews()
+}
+
+struct TitelView: View {
+    let title: String
+    var body: some View {
+        Text("title")
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .bold()
+    }
 }
