@@ -24,36 +24,19 @@ struct SwiftUIExtractViews: View {
                 
                 
                 // counter text
-                CounterText(counture: counter)
+                CounterText(counter: counter)
                 
                 //Counter buttons
                 
                 HStack(spacing: 60) {
-                    Button(action: {
+                    CounterButton(symbol: "-", color: .red){
                         counter -= 1
-                    }, label: {
-                        Text("-")
-                            .font(.system(size: 50, weight: .bold, design: .rounded))
-                            .foregroundStyle(.red)
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .background(Circle() .fill(.white)
-                                .shadow(radius: 20))
-                    })
-                        
-                        
-                        Button(action: {
-                            counter += 1
-                        }, label: {
-                            Text("+")
-                                .font(.system(size: 50, weight: .bold, design: .rounded))
-                                .foregroundStyle(.green)
-                                .frame(width: 100, height: 100, alignment: .center)
-                                .background(
-                                    Circle()
-                                    .fill(.white)
-                                    .shadow(radius: 20))
-                        })
-                    
+                    }
+                    CounterButton(symbol: "+", color: .green){
+                        counter += 1
+                    }
+
+                
                 }
             }
         }
@@ -91,14 +74,16 @@ struct CounterText: View {
     }
 }
 struct CounterButton: View {
-    let symbol: String 
+    let symbol: String
+    let color: Color
+    let action: () -> Void
     var body: some View {
-        Button(action: {
-            counter -= 1
-        }, label: {
-            Text("-")
+        Button(action:
+            action
+        , label: {
+            Text(symbol)
                 .font(.system(size: 50, weight: .bold, design: .rounded))
-                .foregroundStyle(.red)
+                .foregroundStyle(color)
                 .frame(width: 100, height: 100, alignment: .center)
                 .background(Circle() .fill(.white)
                     .shadow(radius: 20))
