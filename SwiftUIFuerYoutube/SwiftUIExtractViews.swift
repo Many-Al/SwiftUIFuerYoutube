@@ -9,23 +9,22 @@ import SwiftUI
 
 struct SwiftUIExtractViews: View {
     @State var counter = 0
+    var background: some View {
+        LinearGradient(colors: [.blue, .purple],
+                       startPoint: .topLeading, endPoint: .bottomTrailing) .ignoresSafeArea()
+    }
+    
     var body: some View {
         ZStack{
             //background
-            LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
+            background
             VStack{
                 // counter title
                 TitelView(title: "Counter")
                 
                 
                 // counter text
-                Text(String(counter))
-                    .font(.system(size: 50, weight: .bold, design: .rounded) )
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Circle() .fill(.red)
-                        .shadow(radius: 20))
+                CounterText(counture: counter)
                 
                 //Counter buttons
                 
@@ -77,5 +76,32 @@ struct TitelView: View {
             .font(.largeTitle)
             .foregroundColor(.white)
             .bold()
+    }
+}
+
+struct CounterText: View {
+    let counter: Int
+    var body: some View {
+        Text(String(counter))
+            .font(.system(size: 50, weight: .bold, design: .rounded) )
+            .foregroundColor(.white)
+            .padding()
+            .background(Circle() .fill(.red)
+                .shadow(radius: 20))
+    }
+}
+struct CounterButton: View {
+    let symbol: String 
+    var body: some View {
+        Button(action: {
+            counter -= 1
+        }, label: {
+            Text("-")
+                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .foregroundStyle(.red)
+                .frame(width: 100, height: 100, alignment: .center)
+                .background(Circle() .fill(.white)
+                    .shadow(radius: 20))
+        })
     }
 }
