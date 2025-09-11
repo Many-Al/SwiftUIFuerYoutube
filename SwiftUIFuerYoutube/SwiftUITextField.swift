@@ -65,6 +65,8 @@ struct SwiftUITextField: View {
             .keyboardType(.alphabet)
             .textFieldStyle(CapsuleTextField())
         
+        TextField("Nub", value: $nub, format: .number )
+        
         
       
         
