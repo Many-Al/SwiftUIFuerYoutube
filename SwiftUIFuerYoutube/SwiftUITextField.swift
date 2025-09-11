@@ -12,6 +12,8 @@ struct SwiftUITextField: View {
     @State var age : String = ""
     @State var phone : String = ""
     @State var email : String = ""
+    @State var password : String = ""
+    @State var nub : Double = 0
     var body: some View {
     VStack(spacing: 30){
         /* TextField("Username", text: $username )
@@ -34,37 +36,56 @@ struct SwiftUITextField: View {
             */
             
         TextField("Username", text: $username )
-            .padding()
-            .frame(height: 60,)
-            .background(Color(.systemGray6))
-            .clipShape(Capsule(), )
+            .textFieldStyle(CapsuleTextField())
+            .keyboardType(.alphabet)
+            .foregroundStyle(.red)
+            .font(.system(size: 40))
+            .disabled(false)
+        //.disabled(false)
+            .textContentType(.name)
+            .autocorrectionDisabled() // haza ysa7a7lak
+            .textInputAutocapitalization(.characters) //7ruf kabira
+            .onSubmit { //mohem jidan
+                print(username)
+            }
         
         TextField("Age", text: $age )
-            .padding()
-            .frame(height: 60,)
-            .background(Color(.systemGray6))
-            .clipShape(Capsule(), )
+            .keyboardType(.numberPad)
+            .textFieldStyle(CapsuleTextField())
         
         TextField("Phone", text: $phone )
-            .padding()
-            .frame(height: 60,)
-            .background(Color(.systemGray6))
-            .clipShape(Capsule(), )
+            .keyboardType(.namePhonePad)
+            .textFieldStyle(CapsuleTextField())
         
         TextField("email", text: $email )
-            .padding()
-            .frame(height: 60,)
-            .background(Color(.systemGray6))
-            .clipShape(Capsule(), )
+            .keyboardType(.alphabet)
+            .textFieldStyle(CapsuleTextField())
+        
+        SecureField("Password", text: $password)//2i5fa2 al7uruf w al2arkam
+            .keyboardType(.alphabet)
+            .textFieldStyle(CapsuleTextField())
         
         
-        
+      
         
             Spacer()
             
         }.padding()
     }
 }
+
+struct CapsuleTextField: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding()
+            .frame(height: 60,)
+            .background(Color(.systemGray6))
+            .clipShape(Capsule(), )
+        
+        
+    }
+        
+    }
 
 #Preview {
     SwiftUITextField()
